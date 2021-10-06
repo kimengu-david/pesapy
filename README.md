@@ -1,10 +1,10 @@
 
-# mpesa_py   version 1.0.0
+# pesapy version 1.0.0
 
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
 
   
-mpesa_py is an unofficial M-Pesa API wrapper. Its saves you all the hardwork and pain\
+pesapy is an unofficial M-Pesa API wrapper. Its saves you all the hardwork and pain\
 that most developers go through when intergrating the [Safaricom M-Pesa](https://developer.safaricom.co.ke/) API into
 their systems.\
 This library does all the hardwork for you and exposes a simple interface that easy to use and\
@@ -467,7 +467,7 @@ business shortcode
 
 ## LICENCE
 
-mpesa_py  is open-sourced software licensed under the [MIT licence](https://choosealicense.com/licenses/mit/)
+pesapy  is open-sourced software licensed under the [MIT licence](https://choosealicense.com/licenses/mit/)
 
 ## CONTRIBUTING
 
