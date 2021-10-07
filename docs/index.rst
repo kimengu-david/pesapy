@@ -216,6 +216,7 @@ Usage/Examples
 
 mpesa\_py library contains the following classes each with its own
 **process\_transaction** method that processes the transaction. 
+
 -  C2B
 -  B2C
 -  B2B 
