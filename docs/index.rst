@@ -3,18 +3,18 @@ pesapy version 1.0.0
 
 |MIT License|
 
-| pesapy is an unofficial M-Pesa API wrapper. Its saves you all the
-hardwork and pain
-| that most developers go through when intergrating the `Safaricom
+pesapy is an unofficial M-Pesa API wrapper. Its saves you all the
+hardwork and pain that most developers go through when intergrating the `Safaricom
 M-Pesa <https://developer.safaricom.co.ke/>`__ API into their systems.
-| This library does all the hardwork for you and exposes a simple
-interface that easy to use and
-| makes your code clean and maintainable.
+This library does all the hardwork for you and exposes a simple
+interface that is easy to use and makes your code clean and maintainable.
 
 *M-Pesa is Africa's largest mobile money platform with more than 40
 million users
 in seven African countries where it operates, Hence the need to
-understand its APIs.* #### Covers the following transactions types:
+understand its APIs.* 
+
+This library covers all  transactions types:
 
 -  Mpesa Express/lipa na mpesa online/STK Push
 -  Reversals
@@ -24,21 +24,24 @@ understand its APIs.* #### Covers the following transactions types:
 -  Transaction status
 -  Account Balance
 
-Getting Started with mpesa\_py
+Getting Started with pesapy
 ==============================
 
 Installation
 ------------
 
-Install mpesa\_py with pip
+Install pesapy with pip
 
 .. code:: bash
 
-      pip install mpesa_py
+      pip install pesapy
 
-| Navigate to the root folder of your project and create a .env file
-that will hold all the environment variables required by mpesa\_py.
-| For example on a linux system:
+Navigate to the root folder of your project and create a .env file
+that will hold all the environment variables required by pesapy. Most of
+the environment variable values are provided by Safaricom in the developer portal.
+If you are working in the sandbox environment you can change the BASE_URL environment
+variable to https://sandbox.safaricom.co.ke
+For example on a linux system:
 
 .. code:: bash
 
@@ -47,9 +50,8 @@ that will hold all the environment variables required by mpesa\_py.
 
 *Dont forget the dot (.) before env when creating the .env file*
 
-| Using your favorite editor open the .env file and paste and fill in
-the following required
-| environment variables
+Using your favorite editor open the .env file and paste and fill in
+the following required environment variables
 
 .. code:: python
 
@@ -101,17 +103,23 @@ the following required
 Environment variables Explanation
 ---------------------------------
 
-| ***BASE\_URL*** --- Is the main URL for Safaricom M-Pesa API.
-| *production*: https://api.safaricom.co.ke
-| *development*:https://sandbox.safaricom.co.ke ***CONSUMER\_KEY and
+ ***BASE\_URL*** --- Is the main URL for Safaricom M-Pesa API.
+*production*: https://api.safaricom.co.ke
+*development*:https://sandbox.safaricom.co.ke ***CONSUMER\_KEY and
+
+
 CONSUMER\_SECRET*** ---Is your application's consumer key and secret
 respectively.
-|  They are provided by safaricom in the developers portal
+They are provided by safaricom in the developers portal
 https://developer.safaricom.co.ke/MyApps.
-|  Used to generate access token.
-| ***MPESA\_EXPRESS\_API\_ENDPOINT*** --- Is Safaricom API endpoint for
+
+Used to generate access token.
+
+
+***MPESA\_EXPRESS\_API\_ENDPOINT*** --- Is Safaricom API endpoint for
 mpesa express transactions.
-| **MPESA\_EXPRESS\_CALLBACK\_URL** --- A CallBack URL is a valid secure
+
+ **MPESA\_EXPRESS\_CALLBACK\_URL** --- A CallBack URL is a valid secure
 URL that is used to receive notifications from M-Pesa API.
 | It is the endpoint to which the results will be sent by M-Pesa API.
 | ***MPESA\_EXPRESS\_BUSINESS\_SHORTCODE*** --- This is organizations
@@ -223,7 +231,7 @@ Using mpesa\_py in interactive python mode(stk push)
 
 .. code:: python
 
-    >>>from mpesa_py.mpesa_express import MpesaExpress
+    >>>from pesapy.mpesa_express import MpesaExpress
     >>>MpesaExpress.process_transaction(
         amount="1", phone_number="254741937028", account_reference="test_api",
         transaction_desc="pay school fees")
@@ -251,7 +259,7 @@ sample Python script.
 
 .. code:: python
 
-    from mpesa_py.mpesa_express import MpesaExpress
+    from pesapy.mpesa_express import MpesaExpress
 
     resp = MpesaExpress.process_transaction(
         amount="1", phone_number="254741937028", account_reference="test_api",
@@ -291,7 +299,7 @@ Using mpesa\_py in interactive python mode(b2c transaction)
 
 .. code:: python
 
-    >>>from mpesa_py import B2C
+    >>>from pesapy import B2C
     >>> B2C.process_transaction(
         command_id="BusinessPayment", amount=1000, phone_number="254708374149",
         remarks="Requested on Tuesday", occassion="issue closed"
@@ -312,7 +320,7 @@ You can save the same transaction in a python script and run the script.
 
 .. code:: python
 
-      from mpesa_py.b2c import B2C
+      from pesapy.b2c import B2C
 
       resp = B2C.process_transaction(
         command_id="BusinessPayment", amount=1000, phone_number="254708374149",
@@ -346,7 +354,7 @@ Using mpesa\_py in interactive python mode(C2B transaction)
 
 .. code:: python
 
-        >>>from mpesa_py.c2b import C2B
+        >>>from pesapy.c2b import C2B
         >>>C2B.process_transaction(
            confirmation_url="https://secure-headland-36393.herokuapp.com/api/payments/c2b-confirmation/",
            validation_url="https://secure-headland-36393.herokuapp.com/api/payments/c2b-validation/",
@@ -365,7 +373,7 @@ sample python script.
 
 .. code:: python
 
-    from mpesa_py.c2b import C2B
+    from pesapy.c2b import C2B
     response = C2B.process_transaction(
         confirmation_url="https://secure-headland-36393.herokuapp.com/api/payments/c2b-confirmation/",
         validation_url="https://secure-headland-36393.herokuapp.com/api/payments/c2b-validation/",
@@ -378,7 +386,7 @@ where a customer
 
 .. code:: python3
 
-    from mpesa_py.c2b import C2B
+    from pesapy.c2b import C2B
 
     >>>resp = C2B.simulate(
         amount=350, customer_phone_no=254708374149,
@@ -465,7 +473,7 @@ Using mpesa\_py in interactive python mode(C2B transaction)
 
 .. code:: python
 
-    >>>from mpesa_py.reversal import Reversal
+    >>>from pesapy.reversal import Reversal
     >>>response = Reversal.process_transaction(
         transaction_id="PIN51HK4SZ",
         amount=900,
@@ -495,7 +503,7 @@ rans\_status\_result\_url defined in your
 
 .. code:: python
 
-    >>>from mpesa_py.trans_status import TransStatus
+    >>>from pesapy.trans_status import TransStatus
     >>>resp = TransStatus.process_transaction(
               transaction_id="PIR81HK5N2",
               remarks="Double repayment",
@@ -523,7 +531,7 @@ number.
 
 .. code:: python
 
-    >>>from mpesa_py.mpesa_express import MpesaExpress
+    >>>from pesapy.mpesa_express import MpesaExpress
     >>>resp = MpesaExpress.trans_status(
               checkout_request_id="ws_CO_270920212251236524"
               )
@@ -557,7 +565,7 @@ organization.
 
 .. code:: python
 
-    >>>from mpesa_py.account_balance import AccountBalance
+    >>>from pesapy.account_balance import AccountBalance
     >>>resp = AccountBalance.process_transaction(
               account_bal_party=600981,
               remarks="testing remarks",
