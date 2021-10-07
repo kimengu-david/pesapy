@@ -3,7 +3,7 @@ pesapy version 1.0.0
 
 |MIT License|
 
-pesapy is an unofficial M-Pesa API wrapper. Its saves you all the
+pesapy is an  M-Pesa API wrapper that saves you all the
 hardwork and pain that most developers go through when intergrating the `Safaricom
 M-Pesa <https://developer.safaricom.co.ke/>`__ API into their systems.
 This library does all the hardwork for you and exposes a simple
@@ -103,86 +103,110 @@ the following required environment variables
 Environment variables Explanation
 ---------------------------------
 
- ***BASE\_URL*** --- Is the main URL for Safaricom M-Pesa API.
+
+**BASE\_URL** --- Is the main URL for Safaricom M-Pesa API.
+
 *production*: https://api.safaricom.co.ke
-*development*:https://sandbox.safaricom.co.ke ***CONSUMER\_KEY and
+
+*development*:https://sandbox.safaricom.co.ke 
 
 
-CONSUMER\_SECRET*** ---Is your application's consumer key and secret
+**CONSUMER\_KEY and CONSUMER\_SECRET** --Is your application's consumer key and secret
 respectively.
 They are provided by safaricom in the developers portal
 https://developer.safaricom.co.ke/MyApps.
-
 Used to generate access token.
 
 
-***MPESA\_EXPRESS\_API\_ENDPOINT*** --- Is Safaricom API endpoint for
+**MPESA\_EXPRESS\_API\_ENDPOINT** --- Is Safaricom API endpoint for
 mpesa express transactions.
 
- **MPESA\_EXPRESS\_CALLBACK\_URL** --- A CallBack URL is a valid secure
+
+**MPESA\_EXPRESS\_CALLBACK\_URL** --- A CallBack URL is a valid secure
 URL that is used to receive notifications from M-Pesa API.
-| It is the endpoint to which the results will be sent by M-Pesa API.
-| ***MPESA\_EXPRESS\_BUSINESS\_SHORTCODE*** --- This is organizations
+It is the endpoint to which the results will be sent by M-Pesa API.
+
+**MPESA\_EXPRESS\_BUSINESS\_SHORTCODE** --- This is organizations
 shortcode (Paybill or Buygoods - A 5 to 7 digit account number).
-| Used to identify an organization and receive the transaction.
-| ***LIPA\_NA\_MPESA\_PASSKEY*** --- Used to generate the request
+Used to identify an organization and receive the transaction.
+
+**LIPA\_NA\_MPESA\_PASSKEY** --- Used to generate the request
 password in combination with the business shortcode
 
-| ***C2B\_REGISTRATION\_API\_ENDPOINT*** --- M-pesa api endpoint for
+**C2B\_REGISTRATION\_API\_ENDPOINT** --- M-pesa api endpoint for
 customer to business transactions.
-| It is used to register both the confirmatation and validation URLs.
-| ***C2B\_RESPONSE\_TYPE*** - This parameter specifies what is to happen
+It is used to register both the confirmatation and validation URLs.
+
+**C2B\_RESPONSE\_TYPE** - This parameter specifies what is to happen
 if for any reason the validation URL is nor reachable.
-|  Note that, This is the default action value that determines what
-MPesa will do in the scenario that your endpoint is
-|  unreachable or is unable to respond on time.
-|  Only two values are allowed: Completed or Cancelled.
-|  Completed means MPesa will automatically complete your transaction,
-|  whereas Cancelled means MPesa will automatically cancel the
-transaction, in the event MPesa is unable to
-|  reach your Validation URL.
-| ***C2B\_SHORTCODE*** --- Is the shortcode of the organization. eg
-600981
-| ***B2C\_INITIATOR\_NAME*** --- The username of the M-Pesa Business to
+Note that, This is the default action value that determines what
+MPesa will do in the scenario that your endpoint is unreachable or is 
+unable to respond on time. Only two values are allowed: Completed or Cancelled.
+Completed means MPesa will automatically complete your transaction,
+whereas Cancelled means MPesa will automatically cancel the
+transaction, in the event MPesa is unable to reach your Validation URL.
+
+
+**C2B\_SHORTCODE** --- Is the shortcode of the organization. eg 600981
+
+**B2C\_INITIATOR\_NAME** --- The username of the M-Pesa Business to
 Customer(B2C) account API operator.
-|  NOTE: the access channel for this operator must be API and the
+NOTE: the access channel for this operator must be API and the
 account must be in active status.
-| ***B2C\_INITIATOR\_PASSWORD*** --- Used in combination with the public
+
+**B2C\_INITIATOR\_PASSWORD**--- Used in combination with the public
 key certificate to produce the security credentials.
-| ***B2C\_SHORTCODE*** --- This is the B2C organization shortcode from
+
+**B2C\_SHORTCODE** --- This is the B2C organization shortcode from
 which the money is to be sent.
-| ***B2C\_QUEUE\_TIMEOUT\_URL*** --- This is the URL to be specified in
+
+**B2C\_QUEUE\_TIMEOUT\_URL** --- This is the URL to be specified in
 your request that will be used by API Proxy to send notification
-| incase the payment request is timed out while awaiting processing in
+incase the payment request is timed out while awaiting processing in
 the queue.
-| ***B2C\_RESULT\_URL*** --- This is the URL to be specified in your
+
+**B2C\_RESULT\_URL** --- This is the URL to be specified in your
 request that will be used by M-Pesa to send notification upon processing
 of the payment request
-| ***B2B\_INITIATOR\_PASSWORD*** ---The password for M-Pesa B2B account
+
+**B2B\_INITIATOR\_PASSWORD** ---The password for M-Pesa B2B account
 API operator
-| ***B2B\_INITIATOR\_NAME*** --- The username for M-Pesa B2B account API
+
+**B2B\_INITIATOR\_NAME** --- The username for M-Pesa B2B account API
 operator
-| ***B2B\_SHORTCODE*** --- This is the B2B organization shortcode from
+
+**B2B\_SHORTCODE** --- This is the B2B organization shortcode from
 which the money is to be sent
-| ***B2B\_SENDER\_TYPE*** --- Type of organization sending the
+
+**B2B\_SENDER\_TYPE** --- Type of organization sending the
 transaction
-| 1 – MSISDN, 2 – Till Number, 4 – Organization short code
-| ***B2B\_RESULT\_URL*** --- The path that stores information of
-transaction after it has been
-| processed by M-Pesa
-| ***B2B\_QUEUE\_TIMEOUT\_URL***---The path that stores information of
+1 – MSISDN, 2 – Till Number, 4 – Organization short code
+
+
+**B2B\_RESULT\_URL** --- The path that stores information of
+transaction after it has been processed by M-Pesa
+
+**B2B\_QUEUE\_TIMEOUT\_URL** ---The path that stores information of
 time out transaction
-| ***REVERSAL\_INITIATOR\_NAME*** ---The username for M-Pesa reversal
-account API operator ***REVERSAL\_INITIATOR\_PASSWD*** ---The password
-for M-Pesa reversal account API operator ***REVERSAL\_RECEIVER\_PARTY***
----Shortcode for the organization initiating the reversal
-***REVERSAL\_RECEIVER\_IDENTIFIER\_TYPE*** ---Type of organization
-receiving the transaction. Always set to 11.
-| ***TRANS\_STATUS\_IDENTIFIER\_TYPE*** ---Type of organization sending
+
+**REVERSAL\_INITIATOR\_NAME** ---The username for M-Pesa reversal
+account API operator
+
+**REVERSAL\_INITIATOR\_PASSWD** ---The password for M-Pesa reversal account API operator
+ 
+ 
+**REVERSAL\_RECEIVER\_PARTY** ---Shortcode for the organization initiating the reversal
+
+**REVERSAL\_RECEIVER\_IDENTIFIER\_TYPE** ---Type of organization receiving the transaction.
+Always set to 11.
+
+**TRANS\_STATUS\_IDENTIFIER\_TYPE** ---Type of organization sending
 the transaction 1 – MSISDN, 2 – Till Number, 4 – Organization short code
-| ***PUBKEY\_PATH*** -- The **absolute** path to the file containing
+
+
+**PUBKEY\_PATH** -- The **absolute** path to the file containing
 your public key certificate. A pem file.
-| This must be downloaded from the daraja api portal: sandbox
+This must be downloaded from the daraja api portal: sandbox
 `link <https://developer.safaricom.co.ke/api/v1/GenerateSecurityCredential/SandboxCertificate.cer>`__
 ,production
 `link <https://developer.safaricom.co.ke/api/v1/GenerateSecurityCredential/ProductionCertificate.cer>`__
@@ -191,42 +215,46 @@ Usage/Examples
 --------------
 
 mpesa\_py library contains the following classes each with its own
-process\_transaction method that processes the transaction. \* C2B \*
-B2C \* B2B \* TransStatus \* Reversal
+**process\_transaction** method that processes the transaction. 
+- C2B
+- B2C
+- B2B 
+- TransStatus 
+- Reversal
+- AccountBalance
+- MpesaExpress
 
-1. ### STK push/Mpesa Express/lipa na mpesa online It is used to send a
-   payment prompt on the customers phone (Popularly known as STK Push
-   Prompt)
-   to your customer's M-PESA registered phone number requesting them to
-   enter their M-PESA pin to
-   authorize and complete a payment.
+1. **STK push/Mpesa Express/lipa na mpesa online**
+It is used to send a payment prompt on the customers phone 
+(Popularly known as STK Push Prompt) to your customer's M-PESA 
+registered phone number requesting them to enter their M-PESA pin to
+authorize and complete a payment.
 
-The process\_transaction method of MpesaExpress class takes the
+The *process\_transaction* method of MpesaExpress class takes the
 following key word arguments.
 
-***amount*** --- Money that customer pays to the Shorcode. Only whole
+**amount** --- Money that customer pays to the Shorcode. Only whole
 numbers are supported.
 
-| ***customer\_phone\_no*** ---The phone number sending money. The
+**customer\_phone\_no** ---The phone number sending money. The
 parameter expected is a Valid Safaricom Mobile Number that is M-Pesa
-registered.
-| Must have the following format 2547XXXXXXXX
+registered.Must have the following format 2547XXXXXXXX
 
-| ***short\_code*** ---The organization receiving the funds. The
+**short\_code** ---The organization receiving the funds. The
 parameter expected is a 5 to 7 Shortcode.
-|  This can be the same as BusinessShortCode value.
+This can be the same as BusinessShortCode value.
 
-| ***account\_reference*** --- Account Reference: This is an
+**account\_reference** --- Account Reference: This is an
 Alpha-Numeric parameter that is defined by your system as an Identifier
-| of the transaction for CustomerPayBillOnline transaction type.
-|  Along with the business name, this value is also displayed to the
+of the transaction for CustomerPayBillOnline transaction type.
+Along with the business name, this value is also displayed to the
 customer in the STK Pin Prompt message. Maximum of 12 characters
 
-| ***transaction\_desc*** --- This is any additional information/comment
+**transaction\_desc** --- This is any additional information/comment
 that can be sent along with the request from your system.
-| Maximum of 13 Characters
+Maximum of 13 Characters
 
-Using mpesa\_py in interactive python mode(stk push)
+Using pesapy in interactive python mode(stk push)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: python
@@ -243,7 +271,7 @@ Example
 .. figure:: https://mpesapy.s3.amazonaws.com/static_assets/mpesaexpress.png
    :alt: App Screenshot
 
-   App Screenshot
+
 The return value of the method MpesaExpress.process\_transaction is a
 json string of the following format on success
 
@@ -266,35 +294,30 @@ sample Python script.
         transaction_desc="pay school fees")
     print(resp)
 
-2. ### B2C (Business to customer transaction) B2C API is an API used to
-   make payments from a Business to Customers (Pay Outs).
-   Also known as Bulk Disbursements
-   B2C API is used in several scenarios by businesses that require to
-   either make Salary Payments,
-   Cashback payments, Promotional Payments(e.g. betting winning
-   payouts), winnings,
-   financial institutions withdrawal of funds, loan disbursements etc.
+1. **B2C (Business to customer transaction)**
+B2C API is an API used to make payments from a Business to Customers (Pay Outs).
+Also known as Bulk Disbursements B2C API is used in several scenarios 
+by businesses that require to either make Salary Payments,Cashback payments, 
+Promotional Payments(e.g. betting winning payouts), winnings,
+financial institutions withdrawal of funds, loan disbursements etc.
 
-The process\_transaction method of B2C class takes the following key
+The *process\_transaction* method of B2C class takes the following key
 word arguments.
 
-| ***command\_id*** -- This is a unique command that specifies B2C
-transaction type
-| Sample values include SalaryPayment, BusinessPayment, PromotionPayment
+**command\_id** -- This is a unique command that specifies B2C
+transaction type Sample values include SalaryPayment, BusinessPayment, PromotionPayment
 
-***amount*** -- The amount of money being sent to the customer.
+**amount** -- The amount of money being sent to the customer.
 
-| ***phone\_number*** -- This is the customer mobile number to receive
-the amount.
-| Must have the following format 2547XXXXXXXX
+**phone\_number** -- This is the customer mobile number to receive
+the amount. Must have the following format 2547XXXXXXXX
 
-***remarks*** -- Any additional information to be associated with the
-transaction
+**remarks** -- Any additional information to be associated with the transaction
 
-***occasion*** -- Any other additional information to be associated with
+**occasion** -- Any other additional information to be associated with
 the transaction.
 
-Using mpesa\_py in interactive python mode(b2c transaction)
+Using pesapy in interactive python mode(b2c transaction)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: python
@@ -312,7 +335,7 @@ Example
 .. figure:: https://mpesapy.s3.amazonaws.com/static_assets/b2_c.png
    :alt: App Screenshot
 
-   App Screenshot
+
 sample python script.
 ^^^^^^^^^^^^^^^^^^^^^
 
@@ -328,28 +351,25 @@ You can save the same transaction in a python script and run the script.
     )
     print(resp)
 
-3. ### C2B (Customer to Business transaction) Enables Payments from
-   Client to Business. A customer initiates a payment request to your
-   Pay Bill or Buy Goods (Till Number)
-   from their phone. Using the Safaricom app or from M-PESA menu in the
-   Sim Tool Kit.
+1. **C2B (Customer to Business transaction)**
+Enables Payments from Client to Business. A customer initiates a payment request to your
+Pay Bill or Buy Goods (Till Number) from their phone using the Safaricom app or from M-PESA
+ menu in the Sim Tool Kit.
 
-| The process\_transaction method of the C2B class registers your
-validation URL and
-| confirmation url. it takes the following key word arguments.
+The *process\_transaction* method of the C2B class registers your
+validation URL and confirmation url. it takes the following key word arguments.
 
-| ***confirmation\_url*** -- This is the URL that receives the
+**confirmation\_url** -- This is the URL that receives the
 confirmation request from API upon payment completion.
-| ***validation\_url*** -- This is the URL that receives the validation
-request from API upon payment submission.
-| The validation URL is only called if the external validation on the
-registered shortcode is enabled. (By default External Validation is
-dissabled)
-|  Once you have successfully registered your URL's a confirmation
-request will be sent to
-| your confirmation\_url whenever a client completes a transaction.
 
-Using mpesa\_py in interactive python mode(C2B transaction)
+**validation\_url** -- This is the URL that receives the validation
+request from API upon payment submission. The validation URL is only called if 
+the external validation on the registered shortcode is enabled. 
+(By default External Validation is dissabled). Once you have successfully registered
+your URL's a confirmation request will be sent to
+your confirmation\_url whenever a client completes a transaction.
+
+Using pesapy in interactive python mode(C2B transaction)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: python
@@ -367,7 +387,7 @@ Example
 .. figure:: https://mpesapy.s3.amazonaws.com/static_assets/c_2_b.png
    :alt: App Screenshot
 
-   App Screenshot
+   
 sample python script.
 ~~~~~~~~~~~~~~~~~~~~~
 
@@ -380,13 +400,12 @@ sample python script.
     )
     print(response)
 
-| You can use the simulate method of C2B class to simulate a situation
-where a customer
-| pays to a paybill from their phone.
+You can use the *simulate* method of C2B class to simulate a situation where a customer
+pays to a paybill from their phone.
 
 .. code:: python3
 
-    from pesapy.c2b import C2B
+    >>>from pesapy.c2b import C2B
 
     >>>resp = C2B.simulate(
         amount=350, customer_phone_no=254708374149,
@@ -400,75 +419,88 @@ Example
 .. figure:: https://mpesapy.s3.amazonaws.com/static_assets/c2b_simulate.png
    :alt: App Screenshot
 
-   App Screenshot
+   
 
-4. ### B2B (Business to Business transaction)
-
-| The Business to Business (B2B) API is used to transfer money from one
+1. **B2B (Business to Business transaction)**
+The Business to Business (B2B) API is used to transfer money from one
 business to another business.
-| This API enables the business to pay other businesses.
-|  The transaction flow is the same as the B2C API transaction flow, but
+This API enables the business to pay other businesses.
+The transaction flow is the same as the B2C API transaction flow, but
 this time the Credit Party is another Business/Company/Organization.
-|  It requires the same credentials and information as the B2C API.
-|  For the API to work, the 2 organizations will need to have the B2B
+It requires the same credentials and information as the B2C API.
+|For the API to work, the 2 organizations will need to have the B2B
 product assigned to them, otherwise the transaction request will fail.
 
-| The process\_transaction method of B2B class takes the following key
+The *process\_transaction* method of B2B class takes the following key
 word arguments.
-| ***command\_id***\ \* --- Takes the following values only.
-| *BusinessPayBill* : This is a transfer of funds from one
-Organization's Working Account to another Organization's Utility Account
-|  *BusinessBuyGoods*: A transfer of funds from one Organization's
+
+**command\_id** --- Takes the following values only.
+*BusinessPayBill* : This is a transfer of funds from one
+Organization's Working Account to another Organization's Utility Account.
+
+*BusinessBuyGoods*: A transfer of funds from one Organization's
 Working Account to another Organization's Merchant Account
-|  *DisburseFundsToBusiness* : A transfer of funds from one
+
+*DisburseFundsToBusiness* : A transfer of funds from one
 Organization's Utility Account to another Organization's Working
 Account.
-| *BusinessToBusinessTransfer* : A transfer of funds from one
+
+*BusinessToBusinessTransfer* : A transfer of funds from one
 Organization's Working Account to another Organization's Working
 Account.
-| *MerchantToMerchantTransfer*: A transfer of funds from one
+
+*MerchantToMerchantTransfer*: A transfer of funds from one
 Organization's Merchant Account to another Organization's Merchant
 Account
-|  ***amount*** --- Is the actual transaction amount.
 
-***credit\_party*** --- Shortcode for the organization receiving the
+**amount** --- Is the actual transaction amount.
+
+**credit\_party** --- Shortcode for the organization receiving the
 funds.
 
-| ***b2b\_receiver\_type*** --- Type of organization receving the
+**b2b\_receiver\_type** --- Type of organization receving the
 transaction
-|  ***remarks*** --- Remarks about the transaction.
 
-***ocassion*** ---Additional information for the transaction. Optional.
+**remarks** --- Remarks about the transaction.
 
-## EXAMPLE \`\`\`python >>>from mpesa\_py.b2b import B2B >>>resp =
-B2B.process\_transaction( command\_id="BusinessPayBill", amount=1900,
-credit\_party=600977, b2b\_receiver\_type=4, remarks="Requested on
-Tuesday", ocassion="issue closed", account\_reference="test\_api" )
->>>print(resp)
+**ocassion** ---Additional information for the transaction. Optional.
 
-\`\`\`
+Example
+-------
+
+.. code:: python
+
+    >>>from pesapy.b2b import B2B
+    >>>resp = B2B.process\_transaction( command\_id="BusinessPayBill", amount=1900,
+        credit\_party=600977, b2b\_receiver\_type=4, remarks="Requested on
+        Tuesday", ocassion="issue closed", account\_reference="test\_api" )
+    >>>print(resp)
+
+
 
 .. figure:: https://mpesapy.s3.amazonaws.com/static_assets/b2b.png
    :alt: App Screenshot
 
    App Screenshot
 
-5. # Reversal
-
-| Reverses a B2B, B2C or C2B M-Pesa transaction.
-| The process\_transaction method of this class reverses the
+1. Reversal
+----------
+Reverses a B2B, B2C or C2B M-Pesa transaction.
+The *process\_transaction* method of this class reverses the
 transaction.
-| It takes the following key word arguments.
-| ***transaction\_id*** -- Is the actual transaction id of the
-transaction you want to
-| reverse.
-| ***amount*** -- The amount transacted in the transaction to be
+It takes the following key word arguments.
+**transaction\_id** --- Is the actual transaction id of the
+transaction you want to reverse.
+
+**amount** --- The amount transacted in the transaction to be
 reversed , down to the cent
-| ***remarks*** -- Comments that are sent along with the transaction.
-| ***occasion*** -- Optional Parameter that contains additional
+
+**remarks** --- Comments that are sent along with the transaction.
+
+**occasion** --- Optional Parameter that contains additional
 information for the transaction
 
-Using mpesa\_py in interactive python mode(C2B transaction)
+Using pesapy in interactive python mode(C2B transaction)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: python
@@ -488,18 +520,20 @@ Example
 .. figure:: https://mpesapy.s3.amazonaws.com/static_assets/reversl.png
    :alt: App Screenshot
 
-   App Screenshot
 
-6. ## Transaction Status Checks the status of a transaction.
-   The process\_transaction method of this class takes the following key
-   word arguments.
-   ***transaction\_id*** -- Is the actual transaction id.
-   ***remarks*** -- Comments that are sent along with the transaction
-   ***Occasion*** -- Any Additional information. Optional
 
-| The result of this transaction will be sent to your
-rans\_status\_result\_url defined in your
-| environment variables file.
+1. Transaction Status Checks the status of a transaction.
+---------------------------------------------------------
+The *process\_transaction* method of this class takes the following keyword arguments.
+
+**transaction\_id** -- Is the actual transaction id.
+
+**remarks** -- Comments that are sent along with the transaction
+
+**Occasion*** -- Any Additional information. Optional
+
+The result of this transaction will be sent to your trans\_status\_result\_url defined in your
+environment variables file.
 
 .. code:: python
 
@@ -517,16 +551,13 @@ Example
 .. figure:: https://mpesapy.s3.amazonaws.com/static_assets/status.png
    :alt: App Screenshot
 
-   App Screenshot
+   
 NOTE: To check the status of an STK push sent to the customer.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-| You can use the trans\_status method of MpesaExpress class.
-| The method takes a single argument ie checkout\_request\_id that is
-always sent back
-| as a response from the STK/M-Pesa express transaction. This is used to
-query whether
-| the customer did actually complete the STK push sent to their phone
+You can use the trans\_status method of MpesaExpress class.
+The method takes a single argument ie checkout\_request\_id that is always sent back
+as a response from the STK/M-Pesa express transaction. This is used to
+query whether the customer did actually complete the STK push sent to their phone
 number.
 
 .. code:: python
@@ -543,25 +574,22 @@ Example
 .. figure:: https://mpesapy.s3.amazonaws.com/static_assets/stk_status.png
    :alt: App Screenshot
 
-   App Screenshot
-| The above STK push was cancelled by the user as seen from the
-ResultDesc property
-| of the response.
+The above STK push was cancelled by the user as seen from the
+ResultDesc property of the response.
 
-7. # Account Balance
-
-| Checks the account balance of M-Pesa BuyGoods (Till Number)
-| The process transaction method of this class takes the followng
+1. Account Balance
+------------------
+Checks the account balance of M-Pesa BuyGoods (Till Number)
+The *process transaction* method of this class takes the followng
 keyword arguments
-| ***account\_bal\_party*** -- Type of organization receiving the
-transaction eg 600981 for a
-| business shortcode
 
-| ***acc\_bal\_identifier\_type*** --- Identifies the type of
-organization.
-| 1 – MSISDN, 2 – Till Number, 4 – Organization short code
+**account\_bal\_party** -- Type of organization receiving the
+transaction eg 600981 for a business shortcode
 
-***remarks*** -- Comments that are sent along with the transaction
+**acc\_bal\_identifier\_type** --- Identifies the type of organization.
+1 – MSISDN, 2 – Till Number, 4 – Organization short code
+
+**remarks** -- Comments that are sent along with the transaction
 
 .. code:: python
 
@@ -579,7 +607,7 @@ Example
 .. figure:: https://mpesapy.s3.amazonaws.com/static_assets/acc_bal.png
    :alt: App Screenshot
 
-   App Screenshot
+   
 LICENCE
 -------
 
@@ -599,7 +627,7 @@ AUTHORS
 -------
 
 -  David Mutune - Full stack Software engineer
-   `instagram <https://www.instagram.com/david__mutune/>`__-----`github <https://www.github.com/kimengu-david>`__-----`twitter <https://twitter.com/David__mutune>`__
+   `instagram <https://www.instagram.com/david__mutune/>`__  `github <https://www.github.com/kimengu-david>`__     `twitter <https://twitter.com/David__mutune>`__
 
 .. |MIT License| image:: https://img.shields.io/apm/l/atomic-design-ui.svg?
    :target: https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs
