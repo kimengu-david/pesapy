@@ -216,13 +216,13 @@ Usage/Examples
 
 mpesa\_py library contains the following classes each with its own
 **process\_transaction** method that processes the transaction. 
-- C2B
-- B2C
-- B2B 
-- TransStatus 
-- Reversal
-- AccountBalance
-- MpesaExpress
+-  C2B
+-  B2C
+-  B2B 
+-  TransStatus 
+-  Reversal
+-  AccountBalance
+-  MpesaExpress
 
 1. STK push/Mpesa Express/lipa na mpesa online
 ----------------------------------------------
