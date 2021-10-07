@@ -526,8 +526,9 @@ Example
 
 
 
-6. Transaction Status Checks the status of a transaction.
----------------------------------------------------------
+6. Transaction Status 
+---------------------
+Checks the status of a transaction.
 The *process\_transaction* method of this class takes the following keyword arguments.
 
 **transaction\_id** -- Is the actual transaction id.
