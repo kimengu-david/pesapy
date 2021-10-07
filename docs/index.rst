@@ -214,7 +214,7 @@ This must be downloaded from the daraja api portal: sandbox
 Usage/Examples
 --------------
 
-mpesa\_py library contains the following classes each with its own
+pesapy library contains the following classes each with its own
 **process\_transaction** method that processes the transaction. 
 
 -  C2B
@@ -270,7 +270,7 @@ Using pesapy in interactive python mode(stk push)
 Example
 -------
 
-.. figure:: https://mpesapy.s3.amazonaws.com/static_assets/mpesaexpress.png
+.. figure:: https://mpesapy.s3.amazonaws.com/static_assets/mexpress.png
    :alt: App Screenshot
 
 
@@ -335,7 +335,7 @@ Using pesapy in interactive python mode(b2c transaction)
 Example
 -------
 
-.. figure:: https://mpesapy.s3.amazonaws.com/static_assets/b2_c.png
+.. figure:: https://mpesapy.s3.amazonaws.com/static_assets/b2cfinal.png
    :alt: App Screenshot
 
 
@@ -385,13 +385,7 @@ Using pesapy in interactive python mode(C2B transaction)
            )
         >>>
 
-Example
--------
 
-.. figure:: https://mpesapy.s3.amazonaws.com/static_assets/c_2_b.png
-   :alt: App Screenshot
-
-   
 sample python script.
 ~~~~~~~~~~~~~~~~~~~~~
 
@@ -420,12 +414,12 @@ pays to a paybill from their phone.
 Example
 -------
 
-.. figure:: https://mpesapy.s3.amazonaws.com/static_assets/c2b_simulate.png
+.. figure:: https://mpesapy.s3.amazonaws.com/static_assets/c2b_simulate_final.png
    :alt: App Screenshot
 
    
 
-4. B2B (Business to Business transaction)
+1. B2B (Business to Business transaction)
 -----------------------------------------
 The Business to Business (B2B) API is used to transfer money from one
 business to another business.
@@ -483,7 +477,7 @@ Example
 
 
 
-.. figure:: https://mpesapy.s3.amazonaws.com/static_assets/b2b.png
+.. figure:: https://mpesapy.s3.amazonaws.com/static_assets/b2bfinal.png
    :alt: App Screenshot
 
    App Screenshot
@@ -522,7 +516,7 @@ Using pesapy in interactive python mode(C2B transaction)
 Example
 -------
 
-.. figure:: https://mpesapy.s3.amazonaws.com/static_assets/reversl.png
+.. figure:: https://mpesapy.s3.amazonaws.com/static_assets/reversal_final.png
    :alt: App Screenshot
 
 
@@ -554,7 +548,7 @@ environment variables file.
 Example
 -------
 
-.. figure:: https://mpesapy.s3.amazonaws.com/static_assets/status.png
+.. figure:: https://mpesapy.s3.amazonaws.com/static_assets/transstatus_finall.png
    :alt: App Screenshot
 
    
@@ -577,7 +571,7 @@ number.
 Example
 -------
 
-.. figure:: https://mpesapy.s3.amazonaws.com/static_assets/stk_status.png
+.. figure:: https://mpesapy.s3.amazonaws.com/static_assets/express_status_final.png
    :alt: App Screenshot
 
 The above STK push was cancelled by the user as seen from the
@@ -610,7 +604,7 @@ transaction eg 600981 for a business shortcode
 Example
 -------
 
-.. figure:: https://mpesapy.s3.amazonaws.com/static_assets/acc_bal.png
+.. figure:: https://mpesapy.s3.amazonaws.com/static_assets/account_balance_final.png
    :alt: App Screenshot
 
    
