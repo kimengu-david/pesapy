@@ -224,7 +224,8 @@ mpesa\_py library contains the following classes each with its own
 - AccountBalance
 - MpesaExpress
 
-1. **STK push/Mpesa Express/lipa na mpesa online**
+1. STK push/Mpesa Express/lipa na mpesa online
+----------------------------------------------
 It is used to send a payment prompt on the customers phone 
 (Popularly known as STK Push Prompt) to your customer's M-PESA 
 registered phone number requesting them to enter their M-PESA pin to
@@ -294,7 +295,8 @@ sample Python script.
         transaction_desc="pay school fees")
     print(resp)
 
-1. **B2C (Business to customer transaction)**
+2. B2C (Business to customer transaction)
+-----------------------------------------
 B2C API is an API used to make payments from a Business to Customers (Pay Outs).
 Also known as Bulk Disbursements B2C API is used in several scenarios 
 by businesses that require to either make Salary Payments,Cashback payments, 
@@ -351,7 +353,8 @@ You can save the same transaction in a python script and run the script.
     )
     print(resp)
 
-1. **C2B (Customer to Business transaction)**
+3. C2B (Customer to Business transaction)
+-----------------------------------------
 Enables Payments from Client to Business. A customer initiates a payment request to your
 Pay Bill or Buy Goods (Till Number) from their phone using the Safaricom app or from M-PESA
  menu in the Sim Tool Kit.
@@ -421,7 +424,8 @@ Example
 
    
 
-1. **B2B (Business to Business transaction)**
+4. B2B (Business to Business transaction)
+-----------------------------------------
 The Business to Business (B2B) API is used to transfer money from one
 business to another business.
 This API enables the business to pay other businesses.
@@ -483,7 +487,7 @@ Example
 
    App Screenshot
 
-1. Reversal
+5. Reversal
 ----------
 Reverses a B2B, B2C or C2B M-Pesa transaction.
 The *process\_transaction* method of this class reverses the
@@ -522,7 +526,7 @@ Example
 
 
 
-1. Transaction Status Checks the status of a transaction.
+6. Transaction Status Checks the status of a transaction.
 ---------------------------------------------------------
 The *process\_transaction* method of this class takes the following keyword arguments.
 
@@ -577,7 +581,7 @@ Example
 The above STK push was cancelled by the user as seen from the
 ResultDesc property of the response.
 
-1. Account Balance
+7. Account Balance
 ------------------
 Checks the account balance of M-Pesa BuyGoods (Till Number)
 The *process transaction* method of this class takes the followng
@@ -626,7 +630,7 @@ Please adhere to this project's ``code of conduct``.
 AUTHORS
 -------
 
--  David Mutune - Full stack Software engineer
+-  **David Mutune - Full stack Software engineer**
    `instagram <https://www.instagram.com/david__mutune/>`__  `github <https://www.github.com/kimengu-david>`__     `twitter <https://twitter.com/David__mutune>`__
 
 .. |MIT License| image:: https://img.shields.io/apm/l/atomic-design-ui.svg?
