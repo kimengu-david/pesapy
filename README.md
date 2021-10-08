@@ -4,10 +4,10 @@
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
 
   
-pesapy is an unofficial M-Pesa API wrapper. Its saves you all the hardwork and pain\
+pesapy is an M-Pesa API wrapper that saves you all the hardwork and pain\
 that most developers go through when intergrating the [Safaricom M-Pesa](https://developer.safaricom.co.ke/) API into
 their systems.\
-This library does all the hardwork for you and exposes a simple interface that easy to use and\
+This library does all the hardwork for you and exposes a simple interface that is easy to use and\
 makes your code clean and maintainable.
 
 _M-Pesa is Africa's largest mobile money platform with more than 40 million users \
@@ -23,17 +23,17 @@ in seven African countries where it operates, Hence the need to understand its A
 * Transaction status
 * Account Balance
 
-# Getting Started with mpesa_py
+# Getting Started with pesapy
 
 ## Installation
 
-Install mpesa_py with pip
+Install pesapy with pip
 
 ```bash
-  pip install mpesa_py
+  pip install pesapy
 ```
 Navigate to the root folder of your project and create a .env file that will
-hold all the environment variables required by mpesa_py.\
+hold all the environment variables required by pesapy.\
 For  example on a linux 
 system:
 ```bash
@@ -156,7 +156,7 @@ sandbox [link](https://developer.safaricom.co.ke/api/v1/GenerateSecurityCredenti
 
 
 ## Usage/Examples
-mpesa_py library contains the following classes each with its own process_transaction
+pesapy library contains the following classes each with its own process_transaction
 method that processes the transaction.
 * C2B
 * B2C
@@ -187,9 +187,9 @@ of the transaction for CustomerPayBillOnline transaction type. \
 Maximum of 13 Characters
 
 
-#### Using mpesa_py in interactive python mode(stk push)
+#### Using pesapy in interactive python mode(stk push)
 ```python
->>>from mpesa_py.mpesa_express import MpesaExpress
+>>>from pesapy.mpesa_express import MpesaExpress
 >>>MpesaExpress.process_transaction(
     amount="1", phone_number="254741937028", account_reference="test_api",
     transaction_desc="pay school fees")
@@ -199,7 +199,7 @@ Maximum of 13 Characters
 
 ## Example
 
-![App Screenshot](https://mpesapy.s3.amazonaws.com/static_assets/mpesaexpress.png)
+![App Screenshot](https://mpesapy.s3.amazonaws.com/static_assets/mexpress.png)
 
 The return value of the method MpesaExpress.process_transaction is a json string of the
 following format on success
@@ -214,7 +214,7 @@ following format on success
 #### sample Python script.
 
 ```python
-from mpesa_py.mpesa_express import MpesaExpress
+from pesapy.mpesa_express import MpesaExpress
 
 resp = MpesaExpress.process_transaction(
     amount="1", phone_number="254741937028", account_reference="test_api",
@@ -245,9 +245,9 @@ Must have the following format 2547XXXXXXXX
 
 ***occasion*** -- Any other additional information to be associated with the transaction.
 
-#### Using mpesa_py in interactive python mode(b2c transaction)
+#### Using pesapy in interactive python mode(b2c transaction)
 ```python
->>>from mpesa_py import B2C
+>>>from pesapy import B2C
 >>> B2C.process_transaction(
     command_id="BusinessPayment", amount=1000, phone_number="254708374149",
     remarks="Requested on Tuesday", occassion="issue closed"
@@ -257,12 +257,12 @@ Must have the following format 2547XXXXXXXX
 ```
 ## Example
 
-![App Screenshot](https://mpesapy.s3.amazonaws.com/static_assets/b2_c.png)
+![App Screenshot](https://mpesapy.s3.amazonaws.com/static_assets/b2cfinal.png)
 
 #### sample python script.
 You can save the same transaction in a python script and run the script.
 ```python
-  from mpesa_py.b2c import B2C
+  from pesapy.b2c import B2C
 
   resp = B2C.process_transaction(
     command_id="BusinessPayment", amount=1000, phone_number="254708374149",
@@ -285,9 +285,9 @@ The validation URL is only called if the external validation on the registered s
 Once you have successfully registered your URL's a confirmation request will be sent to\
 your confirmation_url whenever a client completes a transaction.
 
-#### Using mpesa_py in interactive python mode(C2B transaction)
+#### Using pesapy in interactive python mode(C2B transaction)
 ```python
-    >>>from mpesa_py.c2b import C2B
+    >>>from pesapy.c2b import C2B
     >>>C2B.process_transaction(
        confirmation_url="https://secure-headland-36393.herokuapp.com/api/payments/c2b-confirmation/",
        validation_url="https://secure-headland-36393.herokuapp.com/api/payments/c2b-validation/",
@@ -296,11 +296,11 @@ your confirmation_url whenever a client completes a transaction.
 ```
 ## Example
 
-![App Screenshot](https://mpesapy.s3.amazonaws.com/static_assets/c_2_b.png)
+![App Screenshot](https://mpesapy.s3.amazonaws.com/static_assets/c2b_final.png)
 
 ### sample  python script.
 ```python
-from mpesa_py.c2b import C2B
+from pesapy.c2b import C2B
 response = C2B.process_transaction(
     confirmation_url="https://secure-headland-36393.herokuapp.com/api/payments/c2b-confirmation/",
     validation_url="https://secure-headland-36393.herokuapp.com/api/payments/c2b-validation/",
@@ -312,7 +312,7 @@ You can use the simulate method of C2B class to simulate a situation where a cus
 pays to a paybill from their phone.
 
 ```python3
-from mpesa_py.c2b import C2B
+from pesapy.c2b import C2B
 
 >>>resp = C2B.simulate(
     amount=350, customer_phone_no=254708374149,
@@ -323,7 +323,7 @@ from mpesa_py.c2b import C2B
 ## Example
 
 
-![App Screenshot](https://mpesapy.s3.amazonaws.com/static_assets/c2b_simulate.png)
+![App Screenshot](https://mpesapy.s3.amazonaws.com/static_assets/c2b_simulate_final.png)
 
 4. ### B2B (Business to Business transaction)
 
@@ -353,7 +353,7 @@ _MerchantToMerchantTransfer_: A transfer of funds from one Organization's Mercha
 
  ## EXAMPLE
  ```python
->>>from mpesa_py.b2b import B2B
+>>>from pesapy.b2b import B2B
 >>>resp = B2B.process_transaction(
     command_id="BusinessPayBill", amount=1900,  credit_party=600977, b2b_receiver_type=4,
     remarks="Requested on Tuesday", ocassion="issue closed", account_reference="test_api"
@@ -364,7 +364,7 @@ _MerchantToMerchantTransfer_: A transfer of funds from one Organization's Mercha
 
 
 
-![App Screenshot](https://mpesapy.s3.amazonaws.com/static_assets/b2b.png)
+![App Screenshot](https://mpesapy.s3.amazonaws.com/static_assets/b2bfinal.png)
 
 5. # Reversal
 
@@ -377,9 +377,9 @@ reverse.\
 ***remarks*** -- Comments that are sent along with the transaction.\
 ***occasion*** -- Optional Parameter that contains additional information for the transaction
 
-### Using mpesa_py in interactive python mode(C2B transaction)
+### Using pesapy in interactive python mode(C2B transaction)
 ```python
->>>from mpesa_py.reversal import Reversal
+>>>from pesapy.reversal import Reversal
 >>>response = Reversal.process_transaction(
     transaction_id="PIN51HK4SZ",
     amount=900,
@@ -391,7 +391,7 @@ reverse.\
 
 ## Example
 
-![App Screenshot](https://mpesapy.s3.amazonaws.com/static_assets/reversl.png)
+![App Screenshot](https://mpesapy.s3.amazonaws.com/static_assets/reversal_final.png)
 
 
 6. ## Transaction Status
@@ -405,7 +405,7 @@ The result of this transaction will be sent to your rans_status_result_url defin
 environment variables file.
 
 ```python
->>>from mpesa_py.trans_status import TransStatus
+>>>from pesapy.trans_status import TransStatus
 >>>resp = TransStatus.process_transaction(
           transaction_id="PIR81HK5N2",
           remarks="Double repayment",
@@ -416,7 +416,7 @@ environment variables file.
 ```
 ## Example
 
-![App Screenshot](https://mpesapy.s3.amazonaws.com/static_assets/status.png)
+![App Screenshot](https://mpesapy.s3.amazonaws.com/static_assets/transstatus_finall.png)
 
 ### NOTE: To check the status of an STK push sent to the customer.
 You can use the trans_status method of MpesaExpress class.\
@@ -424,7 +424,7 @@ The method takes a single argument ie checkout_request_id that is always sent ba
 as a response from the STK/M-Pesa express transaction. This is used to query whether \
 the customer did actually complete the STK push sent to their phone number.
 ```python
->>>from mpesa_py.mpesa_express import MpesaExpress
+>>>from pesapy.mpesa_express import MpesaExpress
 >>>resp = MpesaExpress.trans_status(
           checkout_request_id="ws_CO_270920212251236524"
           )
@@ -432,7 +432,7 @@ the customer did actually complete the STK push sent to their phone number.
 ```
 ## Example
 
-![App Screenshot](https://mpesapy.s3.amazonaws.com/static_assets/stk_status.png)
+![App Screenshot](https://mpesapy.s3.amazonaws.com/static_assets/express_status_final.png)
 
 The above STK push was cancelled by the user as seen from the ResultDesc property\
 of the response.
@@ -450,7 +450,7 @@ business shortcode
 ***remarks*** -- Comments that are sent along with the transaction
 
 ```python
->>>from mpesa_py.account_balance import AccountBalance
+>>>from pesapy.account_balance import AccountBalance
 >>>resp = AccountBalance.process_transaction(
           account_bal_party=600981,
           remarks="testing remarks",
@@ -460,7 +460,7 @@ business shortcode
 ```
 ## Example
 
-![App Screenshot](https://mpesapy.s3.amazonaws.com/static_assets/acc_bal.png)
+![App Screenshot](https://mpesapy.s3.amazonaws.com/static_assets/account_balance_final.png)
 
 
 
